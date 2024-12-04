@@ -9,7 +9,7 @@ const MainPage = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Newsfeed />} /> {/* Hiển thị Newsfeed */}
+                <Route path="${process.env.REACT_APP_API_URL}/" element={<Newsfeed />} /> {/* Hiển thị Newsfeed */}
             </Routes>
 
         </>
