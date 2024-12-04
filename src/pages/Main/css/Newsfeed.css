@@ -1,0 +1,146 @@
+/* Ensure the body or main container takes up the full height of the screen */
+.MainNF {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for the Newsfeed */
+.newsfeed-container {
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    width: 100%;  /* Make sure it scales correctly */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Create Post Button */
+.create-post-button {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Individual Post Container */
+.post-container {   
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Post Media (Image/Video) */
+.post-media {
+    width: 600px;
+    height: 400px;
+    margin-top: 1rem;
+}
+
+.post-media img,
+.post-media video {
+    width: 100%;
+    height: auto;
+}
+
+/* Like and Comment Buttons */
+.like-button,
+.comment-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.like-button {
+    background-color: #007bff;
+    color: white;
+    margin-right: 1rem;
+}
+
+.comment-button {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Modal Styles */
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 500px;
+}
+
+/* Textarea for creating posts and adding comments */
+.textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* File Upload Section */
+.file-input {
+    margin-top: 1rem;
+}
+
+/* Buttons inside modal */
+.modal-buttons button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.modal-buttons .post-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-buttons .cancel-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-buttons .close-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.avatar {
+    width: 40px; /* Kích thước avatar */
+    height: 40px;
+    border-radius: 50%; /* Hình tròn */
+    object-fit: cover; /* Đảm bảo ảnh vừa khung */
+    margin-right: 10px; /* Khoảng cách giữa ảnh và tên người dùng */
+}
+
+.post-header {
+    display: flex;
+    align-items: center; /* Căn giữa theo trục dọc */
+    margin-bottom: 10px; /* Khoảng cách giữa tiêu đề và nội dung */
+}
+
