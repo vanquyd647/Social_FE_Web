@@ -17,13 +17,13 @@ function App() {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path="${process.env.REACT_APP_API_URL}/" element={<LoginPage />} />
-          <Route path="${process.env.REACT_APP_API_URL}/register" element={<RegisterPage />} />
-          <Route path="${process.env.REACT_APP_API_URL}/verify-otp" element={<VerifyOtpPage />} />
-          <Route path="${process.env.REACT_APP_API_URL}/home" element={<MainPage />} />
-          <Route path="${process.env.REACT_APP_API_URL}/chats" element={<ChatList />} />
-          <Route path="${process.env.REACT_APP_API_URL}/friends" element={<FriendList />} />
-          <Route path="${process.env.REACT_APP_API_URL}/chat-room/:chatRoomId/:userId" element={<ChatRoom />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify-otp" element={<VerifyOtpPage />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/chats" element={<ChatList />} />
+          <Route path="/friends" element={<FriendList />} />
+          <Route path="/chat-room/:chatRoomId/:userId" element={<ChatRoom />} />
         </Routes>
       </Router>
     </Provider>

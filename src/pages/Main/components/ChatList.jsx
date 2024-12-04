@@ -34,7 +34,7 @@ const ChatList = () => {
         dispatch(setCurrentChatRoom(chatRoom));
     
         // Navigate to the ChatRoom page, passing chatRoomId and userId as query params or route params
-        navigate(`${process.env.REACT_APP_API_URL}/chat-room/${chatRoom._id}/${userId}`, { state: { chatRoomName: chatRoom.displayName } });
+        navigate(`/chat-room/${chatRoom._id}/${userId}`, { state: { chatRoomName: chatRoom.displayName } });
     
         // Optional: you can show an alert here as well
         alert(`Chuyển đến phòng chat: ${chatRoom.displayName}`);
