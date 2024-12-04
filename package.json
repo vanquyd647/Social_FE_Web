@@ -42,5 +42,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5559"
+  "proxy": "http://localhost:5559",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "webpack": "^5.97.0",
+    "webpack-dev-server": "^5.1.0"
+  }
 }
