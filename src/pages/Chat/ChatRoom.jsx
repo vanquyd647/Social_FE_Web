@@ -17,7 +17,7 @@ const ChatRoom = () => {
     const messagesEndRef = useRef(null);
 
     // Socket connection
-    const socket = io('http://localhost:5559'); // Replace with your socket server URL
+    const socket = io('https://social-be-hyzv.onrender.com'); // Replace with your socket server URL
 
     useEffect(() => {
         // Fetch initial messages when entering the chat room

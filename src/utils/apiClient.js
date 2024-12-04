@@ -3,7 +3,7 @@ import { getToken, setToken, getRefreshToken, setRefreshToken } from './storage'
 
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5559/api/', // API backend
+    baseURL: 'https://social-be-hyzv.onrender.com/api/', // API backend
     headers: { 'Content-Type': 'application/json' },
 });
 
