@@ -9,13 +9,12 @@ import {
     acceptFriendRequest,
     removeFriend
 } from '../../../store/slices/friendSlice';
-
+import { createChatRoom } from '../../../store/slices/chatSlice';
 import Navbar from './Navbar';
 
 const FriendList = () => {
     const dispatch = useDispatch();
     const { friends, users, sentRequests, receivedRequests, loading, error } = useSelector(state => state.friends);
-
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
@@ -24,6 +23,16 @@ const FriendList = () => {
         dispatch(getSentRequests());
         dispatch(getReceivedRequests());
     }, [dispatch]);
+
+    const handleChat = async (friendId) => {
+        // Create a chat room with the selected friend
+        const chatData = {
+            members: [friendId], // Assuming the current user ID is automatically added
+        };
+
+        // Dispatch the action to create the chat room
+        await dispatch(createChatRoom(chatData));
+    };
 
     const handleSearch = () => {
         if (searchQuery.trim()) {
@@ -34,14 +43,18 @@ const FriendList = () => {
 
     const handleSendRequest = (userId) => {
         dispatch(sendFriendRequest(userId)).then(() => {
+            dispatch(getFriendsList());
             dispatch(getSentRequests());
+            dispatch(getReceivedRequests());
         });
     };
 
     const handleAcceptRequest = (userId) => {
         dispatch(acceptFriendRequest(userId)).then(() => {
             dispatch(getFriendsList());
+            dispatch(getSentRequests());
             dispatch(getReceivedRequests());
+            handleChat(userId);
         });
     };
 
@@ -122,8 +135,18 @@ const FriendList = () => {
                     <h3>Your Friends:</h3>
                     <ul>
                         {friends.map(friend => (
-                            <li key={friend._id}>
-                                <span>{friend.username}</span>
+                            <li key={friend._id} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                                {/* Avatar */}
+                                <img
+                                    src={friend.avatar_url || 'default-avatar.jpg'}
+                                    alt={friend.username || "No username"}
+                                    style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '15px' }}
+                                />
+                                {/* Friend Info */}
+                                <div>
+                                    <h4 style={{ margin: 0 }}>{friend.username || friend.email}</h4>
+                                    <p style={{ margin: 0, color: 'gray' }}>{friend.bio}</p>
+                                </div>
                             </li>
                         ))}
                     </ul>

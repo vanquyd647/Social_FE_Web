@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { receiveMessage, getMessagesInRoom } from '../../store/slices/messageSlice';
 import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'; // Import useParams hook
+import { useLocation } from 'react-router-dom';
 import '../Chat/ChatRoom.css'; // Assuming you have a CSS file for styling
 
 const ChatRoom = () => {
+    const location = useLocation();
     // Use the useParams hook to get route parameters
     const { chatRoomId, userId } = useParams(); // Get chatRoomId and userId from the URL
-    const chatRoomName = "Chat Room Name"; // Replace with dynamic chat room name if needed
+    const { chatRoomName } = location.state || {};
     const [newMessage, setNewMessage] = useState('');
     const dispatch = useDispatch();
     const { messages, loadingFetch, error } = useSelector((state) => state.messages);
@@ -17,7 +19,8 @@ const ChatRoom = () => {
     const messagesEndRef = useRef(null);
 
     // Socket connection
-    const socket = io('https://social-be-hyzv.onrender.com'); // Replace with your socket server URL
+    // const socket = io('http://localhost:5559'); // Replace with your socket server URL
+    const socket = io('https://social-be-hyzv.onrender.com');
 
     useEffect(() => {
         // Fetch initial messages when entering the chat room
@@ -58,6 +61,13 @@ const ChatRoom = () => {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); 
+            handleSendMessage();
+        }
+    };
+
     return (
         <div className="chat-container">
             {loadingFetch ? (
@@ -90,6 +100,7 @@ const ChatRoom = () => {
                     className="input"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     placeholder="Type a message"
                 />
                 <button onClick={handleSendMessage}>Send</button>

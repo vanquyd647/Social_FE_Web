@@ -37,7 +37,7 @@ const ChatList = () => {
         navigate(`/chat-room/${chatRoom._id}/${userId}`, { state: { chatRoomName: chatRoom.displayName } });
     
         // Optional: you can show an alert here as well
-        alert(`Chuyển đến phòng chat: ${chatRoom.displayName}`);
+        // alert(`Chuyển đến phòng chat: ${chatRoom.displayName}`);
     };
 
     if (loading) return <p>Đang tải danh sách phòng chat...</p>;
