@@ -38,6 +38,7 @@ const ChatList = () => {
     
         // Optional: you can show an alert here as well
         // alert(`Chuyển đến phòng chat: ${chatRoom.displayName}`);
+        //. chưa chạy 
     };
 
     if (loading) return <p>Đang tải danh sách phòng chat...</p>;
