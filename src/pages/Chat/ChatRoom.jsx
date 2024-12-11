@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveMessage, getMessagesInRoom } from '../../store/slices/messageSlice';
 import { io } from 'socket.io-client';
-import { useParams } from 'react-router-dom'; // Import useParams hook
+import { useParams } from 'react-router-dom'; 
 import { useLocation } from 'react-router-dom';
-import '../Chat/ChatRoom.css'; // Assuming you have a CSS file for styling
+import '../Chat/ChatRoom.css'; 
 
 const ChatRoom = () => {
     const location = useLocation();
     // Use the useParams hook to get route parameters
-    const { chatRoomId, userId } = useParams(); // Get chatRoomId and userId from the URL
+    const { chatRoomId, userId } = useParams(); 
     const { chatRoomName } = location.state || {};
     const [newMessage, setNewMessage] = useState('');
     const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const ChatRoom = () => {
     const messagesEndRef = useRef(null);
 
     // Socket connection
-    // const socket = io('http://localhost:5559'); // Replace with your socket server URL
-    const socket = io('https://social-be-hyzv.onrender.com');
+    const socket = io('http://localhost:5559'); 
+    // const socket = io('https://social-be-hyzv.onrender.com');
 
     useEffect(() => {
         // Fetch initial messages when entering the chat room
