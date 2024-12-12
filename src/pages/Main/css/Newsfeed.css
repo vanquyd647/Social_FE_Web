@@ -44,7 +44,7 @@
 /* Ảnh và video trong bài viết */
 .post-media {
     max-width: 100%; /* Đảm bảo vừa khung màn hình */
-    height: auto; /* Tự điều chỉnh chiều cao */
+    height: 500px; /* Tự điều chỉnh chiều cao */
     margin-top: 1rem;
 }
 

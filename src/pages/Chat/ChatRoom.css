@@ -1,46 +1,63 @@
+/* Căn chỉnh tổng thể giao diện chat ở giữa màn hình */
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    height: 90vh; /* Chiều cao toàn màn hình */
     padding: 10px;
+    background-color: #f4f4f9; /* Màu nền nhẹ */
 }
 
+/* Điều chỉnh danh sách tin nhắn */
 .message-list {
     flex: 1;
     overflow-y: auto;
     padding: 10px;
+    max-width: 600px; /* Giới hạn chiều rộng */
+    width: 100%; /* Đảm bảo phù hợp với container */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Các tin nhắn */
 .message {
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    max-width: 60%;
+    margin-bottom: 15px; /* Tăng khoảng cách giữa các tin nhắn */
+    border-radius: 10px;
+    max-width: 70%; /* Giới hạn độ rộng tin nhắn */
     word-wrap: break-word;
     display: flex;
-    justify-content: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng để nổi bật tin nhắn */
 }
 
 .sent {
     background-color: #d1f7d6;
-    align-self: flex-end;
-    margin-left: auto; /* Align to the right */
+    align-self: flex-end; /* Canh phải */
+    margin-left: auto; /* Tạo khoảng cách với tin nhắn bên trái */
 }
 
 .received {
     background-color: #f7d1d1;
-    align-self: flex-start;
-    margin-right: auto; /* Align to the left */
+    align-self: flex-start; /* Canh trái */
+    margin-right: auto; /* Tạo khoảng cách với tin nhắn bên phải */
 }
 
+/* Tin nhắn văn bản */
 .message-text {
     font-size: 16px;
+    line-height: 1.5; /* Tăng khoảng cách giữa các dòng trong tin nhắn */
 }
 
+/* Hộp nhập tin nhắn */
 .input-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .input {
@@ -48,13 +65,38 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    height: 40px; /* Chiều cao cố định */
 }
 
 button {
-    padding: 10px 15px;
+    height: 40px; /* Chiều cao cố định giống với input */
     margin-left: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 0 15px; /* Loại bỏ padding trên và dưới, chỉ giữ padding hai bên */
+    line-height: 40px; /* Căn giữa văn bản trong nút */
+}
+
+
+
+/* Responsive chỉnh cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .message-list {
+        max-width: 90%; /* Đảm bảo giao diện vẫn đẹp trên màn hình nhỏ */
+    }
+
+    .input-container {
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .input {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

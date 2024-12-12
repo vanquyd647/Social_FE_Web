@@ -25,6 +25,7 @@ const Navbar = () => {
 // Styles
 const navbarStyle = {
     display: 'flex',
+    width: '100%',
     justifyContent: 'space-around',
     padding: '1rem',
     backgroundColor: '#007BFF',

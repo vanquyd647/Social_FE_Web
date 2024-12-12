@@ -4,7 +4,9 @@ import { receiveMessage, getMessagesInRoom } from '../../store/slices/messageSli
 import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'; 
 import { useLocation } from 'react-router-dom';
+
 import '../Chat/ChatRoom.css'; 
+import Navbar from '../Main/components/Navbar';
 
 const ChatRoom = () => {
     const location = useLocation();
@@ -19,8 +21,8 @@ const ChatRoom = () => {
     const messagesEndRef = useRef(null);
 
     // Socket connection
-    const socket = io('http://localhost:5559'); 
-    // const socket = io('https://social-be-hyzv.onrender.com');
+    // const socket = io('http://localhost:5559'); 
+    const socket = io('https://social-be-hyzv.onrender.com');
 
     useEffect(() => {
         // Fetch initial messages when entering the chat room
@@ -69,6 +71,7 @@ const ChatRoom = () => {
     };
 
     return (
+        <><Navbar />
         <div className="chat-container">
             {loadingFetch ? (
                 <div>Loading...</div>
@@ -106,6 +109,7 @@ const ChatRoom = () => {
                 <button onClick={handleSendMessage}>Send</button>
             </div>
         </div>
+        </>
     );
 };
 
