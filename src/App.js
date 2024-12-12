@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';  
 import store from './store';  
-import { Helmet } from 'react-helmet';  
 
 import RegisterPage from './pages/Login_register/RegisterPage';
 import LoginPage from './pages/Login_register/LoginPage';
@@ -16,10 +15,6 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Helmet>
-          <title>HE HE</title> 
-          <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/red89-f8933.appspot.com/o/Social_app%2Ff2.png?alt=media&token=52b201aa-eb1e-45c6-a262-8a7b023c5fc3" /> 
-        </Helmet>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />

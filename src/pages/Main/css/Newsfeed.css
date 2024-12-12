@@ -1,4 +1,4 @@
-/* Ensure the body or main container takes up the full height of the screen */
+/* Đảm bảo thân trang chiếm toàn bộ chiều cao */
 .MainNF {
     margin: 0;
     display: flex;
@@ -6,20 +6,19 @@
     align-items: center;
 }
 
-/* Container for the Newsfeed */
+/* Container cho Newsfeed */
 .newsfeed-container {
     max-width: 800px;
     font-family: Arial, sans-serif;
     padding: 1rem;
-    width: 100%;  /* Make sure it scales correctly */
+    width: 100%; /* Phù hợp với mọi kích thước màn hình */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-
-/* Create Post Button */
+/* Các nút */
 .create-post-button {
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
@@ -28,10 +27,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
-/* Individual Post Container */
-.post-container {   
+/* Bố cục bài viết */
+.post-container {
     width: 100%;
     display: block;
     border: 1px solid #ccc;
@@ -41,20 +41,14 @@
     background-color: #fff;
 }
 
-/* Post Media (Image/Video) */
+/* Ảnh và video trong bài viết */
 .post-media {
-    width: 600px;
-    height: 400px;
+    max-width: 100%; /* Đảm bảo vừa khung màn hình */
+    height: auto; /* Tự điều chỉnh chiều cao */
     margin-top: 1rem;
 }
 
-.post-media img,
-.post-media video {
-    width: 100%;
-    height: auto;
-}
-
-/* Like and Comment Buttons */
+/* Nút Like và Comment */
 .like-button,
 .comment-button {
     padding: 0.5rem 1rem;
@@ -74,7 +68,22 @@
     color: white;
 }
 
-/* Modal Styles */
+/* Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Modal */
 .modal-background {
     position: fixed;
     top: 0;
@@ -91,56 +100,54 @@
     background-color: white;
     padding: 2rem;
     border-radius: 5px;
-    width: 500px;
+    width: 90%; /* Giảm kích thước modal trên thiết bị nhỏ */
+    max-width: 500px;
 }
 
-/* Textarea for creating posts and adding comments */
-.textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Container */
+    .newsfeed-container {
+        padding: 0.5rem;
+    }
 
-/* File Upload Section */
-.file-input {
-    margin-top: 1rem;
-}
+    /* Post Media */
+    .post-media {
+        max-width: 100%; /* Chiều rộng đầy đủ */
+        height: auto;
+    }
 
-/* Buttons inside modal */
-.modal-buttons button {
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 1rem;
-}
+    /* Post Container */
+    .post-container {
+        padding: 0.8rem;
+    }
 
-.modal-buttons .post-button {
-    background-color: #28a745;
-    color: white;
-}
+    /* Create Post Button */
+    .create-post-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
 
-.modal-buttons .cancel-button {
-    background-color: #dc3545;
-    color: white;
-}
+    /* Buttons */
+    .like-button,
+    .comment-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 
-.modal-buttons .close-button {
-    background-color: #dc3545;
-    color: white;
-}
+    /* Modal Content */
+    .modal-content {
+        padding: 1rem;
+    }
 
-.avatar {
-    width: 40px; /* Kích thước avatar */
-    height: 40px;
-    border-radius: 50%; /* Hình tròn */
-    object-fit: cover; /* Đảm bảo ảnh vừa khung */
-    margin-right: 10px; /* Khoảng cách giữa ảnh và tên người dùng */
-}
+    /* Avatar */
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
 
-.post-header {
-    display: flex;
-    align-items: center; /* Căn giữa theo trục dọc */
-    margin-bottom: 10px; /* Khoảng cách giữa tiêu đề và nội dung */
+    /* Header */
+    .post-header h3 {
+        font-size: 1rem;
+    }
 }
-

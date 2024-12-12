@@ -11,7 +11,6 @@ const MainPage = () => {
             <Routes>
                 <Route path="/" element={<Newsfeed />} /> {/* Hiển thị Newsfeed */}
             </Routes>
-
         </>
     );
 };
